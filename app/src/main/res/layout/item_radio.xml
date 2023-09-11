@@ -29,28 +29,6 @@
             android:layout_marginTop="@dimen/d_8dp"
             android:orientation="vertical">
 
-          <!--  <RadioButton
-                android:id="@+id/radio_yes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:button="@drawable/toggle_states"
-                android:buttonTint="@color/color_green"
-                android:paddingLeft="@dimen/d_8dp"
-                android:text="Yes"
-                android:textColor="@color/color_radio"
-                android:textSize="@dimen/t_14sp" />
-
-            <RadioButton
-                android:id="@+id/radio_no"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:button="@drawable/toggle_states"
-                android:buttonTint="@color/color_green"
-                android:paddingLeft="@dimen/d_8dp"
-                android:text="No"
-                android:textColor="@color/color_radio"
-                android:textSize="@dimen/t_14sp" />
--->
         </RadioGroup>
 
     </LinearLayout>
