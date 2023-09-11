@@ -36,22 +36,19 @@ object CheckFieldValidations {
             if (jsonModel.isRequired != null && jsonModel.isRequired) {
                 if (viewHolder?.itemView != null) {
                     if (jsonModel.type == FormConstants.TYPE_EDITTEXT
-                        && fieldValue.equals(EMPTY_STRING, ignoreCase = true)
-                    ) {
+                        && fieldValue.equals(EMPTY_STRING, ignoreCase = true)) {
                         (viewHolder as EditTextViewHolder).layoutEdittext.isErrorEnabled = true
                         viewHolder.layoutEdittext.error = FormConstants.FIELD_REQUIRED
                         recyclerView.smoothScrollToPosition(i)
                         isValidated[0] = false
                     } else if (jsonModel.type == FormConstants.TYPE_CHECKBOX
-                        && fieldValue.equals(EMPTY_STRING, ignoreCase = true)
-                    ) {
+                        && fieldValue.equals(EMPTY_STRING, ignoreCase = true)) {
                         (viewHolder as CheckboxViewHolder).checkBox.error =
                             FormConstants.FIELD_REQUIRED
                         recyclerView.smoothScrollToPosition(i)
                         isValidated[0] = false
                     } else if (jsonModel.type == FormConstants.TYPE_RADIO
-                        && fieldValue.equals(EMPTY_STRING, ignoreCase = true)
-                    ) {
+                        && fieldValue.equals(EMPTY_STRING, ignoreCase = true)) {
                         for (j in 0 until (viewHolder as RadioViewHolder).rGroup.childCount) {
                             (viewHolder.rGroup.getChildAt(j) as RadioButton).error =
                                 FormConstants.FIELD_REQUIRED
