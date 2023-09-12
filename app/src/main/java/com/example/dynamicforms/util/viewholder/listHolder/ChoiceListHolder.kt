@@ -14,13 +14,13 @@ class ChoiceListHolder(itemView: View, jsonModelList: List<JSONModel>) :
     var choiceItemAdapter: ChoiceItemAdapter
 
     var listOChoice = mutableListOf<Choice>(
-        Choice("0","0",false),
-        Choice("1","1",false),
-        Choice("2","2",false),
-        Choice("3","3",false),
-        Choice("4","4",false),
-        Choice("5","5",false),
-        Choice("6","6",false)
+        Choice("0", "0", false),
+        Choice("1", "1", false),
+        Choice("2", "2", false),
+        Choice("3", "3", false),
+        Choice("4", "4", false),
+        Choice("5", "5", false),
+        Choice("6", "6", false),
     )
     init {
         listOfChoice = itemView.findViewById(R.id.list_of_choices)
@@ -29,7 +29,8 @@ class ChoiceListHolder(itemView: View, jsonModelList: List<JSONModel>) :
         choiceItemAdapter = ChoiceItemAdapter(
             MainActivity.activityInstance.applicationContext,
             listOChoice as ArrayList<Choice>,
-            this)
+            this,
+        )
 
         // we set a GridLayout to have the same margin and size
         // of the favourite items like the other item
@@ -37,7 +38,6 @@ class ChoiceListHolder(itemView: View, jsonModelList: List<JSONModel>) :
             layoutManager = GridLayoutManager(this.context, 1)
             adapter = choiceItemAdapter
         }
-
     }
 
     override fun onItemClick(position: Int, choice: Choice) {

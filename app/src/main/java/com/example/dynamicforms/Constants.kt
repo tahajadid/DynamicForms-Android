@@ -2,7 +2,6 @@ package com.example.dynamicforms
 
 import com.example.dynamicforms.util.models.JSONModel
 import com.example.dynamicforms.util.models.ListModel
-import com.google.gson.annotations.SerializedName
 
 object Constants {
 
@@ -14,13 +13,11 @@ object Constants {
     const val TYPE_SPACE = "SPACE"
     const val TYPE_CHECKBOX = "CHECKBOX"
 
-
     const val EMPTY_STRING = ""
     const val INPUT_TYPE_NUMBER = "numbers"
     const val INPUT_TYPE_NUMBER_DECIMAL = "numbers_decimal"
 
     const val FIELD_REQUIRED = "*Required"
-
 
     val ListOfModel = arrayListOf<JSONModel>(
         JSONModel(),
@@ -33,8 +30,9 @@ object Constants {
             "edittext_1",
             true,
             4,
-        true,
-        listOf()),
+            true,
+            listOf(),
+        ),
         JSONModel(
             "edittext_1",
             "edittext_1",
@@ -45,7 +43,8 @@ object Constants {
             true,
             4,
             true,
-            listOf()),
+            listOf(),
+        ),
         JSONModel(),
         JSONModel(
             "radio_group_1",
@@ -60,18 +59,21 @@ object Constants {
             listOf(
                 ListModel(
                     0,
-                    "Radio 1"),
+                    "Radio 1",
+                ),
                 ListModel(
                     1,
-                    "Radio 2"),
+                    "Radio 2",
+                ),
                 ListModel(
                     2,
-                    "Radio 3"),
+                    "Radio 3",
+                ),
                 ListModel(
                     3,
-                    "Radio 4"),
-            )
-        )
+                    "Radio 4",
+                ),
+            ),
+        ),
     )
-
 }

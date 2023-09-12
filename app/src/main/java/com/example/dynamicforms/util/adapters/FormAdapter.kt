@@ -93,7 +93,7 @@ class FormAdapter(
         } else if (holder is SubmitButtonHolder) {
             bindSubmitButton(holder, position)
         } else if (holder is CheckboxViewHolder) {
-            BindCheckBox.bindCheckBox(jsonModelList,holder, position)
+            BindCheckBox.bindCheckBox(jsonModelList, holder, position)
         } else if (holder is AddAgainButtonHolder) {
             btnAddAgainButton(holder, position)
         }
@@ -103,7 +103,6 @@ class FormAdapter(
         val jsonModel = jsonModelList[position]
         holder.btnAddAgain.setText(jsonModel.text)
     }
-
 
     private fun bindSubmitButton(holder: SubmitButtonHolder, position: Int) {
         val jsonModel = jsonModelList[position]
@@ -139,8 +138,10 @@ class FormAdapter(
                 radioButton.backgroundTintList =
                     ColorStateList.valueOf(mContext.resources.getColor(R.color.black))
             }
-            val params = RadioGroup.LayoutParams(RadioGroup.LayoutParams.WRAP_CONTENT,
-                RadioGroup.LayoutParams.WRAP_CONTENT)
+            val params = RadioGroup.LayoutParams(
+                RadioGroup.LayoutParams.WRAP_CONTENT,
+                RadioGroup.LayoutParams.WRAP_CONTENT,
+            )
             params.setMargins(16, 24, 8, 8)
             holder.rGroup.addView(radioButton, params)
         }
@@ -149,8 +150,16 @@ class FormAdapter(
         ) {
             DataValueHashMap.put(
                 jsonModelList[position].id.toString(),
-                if (holder.rGroup.checkedRadioButtonId == -1) FormConstants.EMPTY_STRING else (holder.itemView.findViewById<View>(
-                    holder.rGroup.checkedRadioButtonId) as RadioButton).text.toString())
+                if (holder.rGroup.checkedRadioButtonId == -1) {
+                    FormConstants.EMPTY_STRING
+                } else {
+                    (
+                        holder.itemView.findViewById<View>(
+                            holder.rGroup.checkedRadioButtonId,
+                        ) as RadioButton
+                        ).text.toString()
+                },
+            )
         }
         outer@ for (i in 0 until holder.rGroup.childCount) {
             val id = holder.rGroup.getChildAt(i).id

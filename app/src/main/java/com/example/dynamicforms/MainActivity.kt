@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity(), JsonToFormClickListener, ChoiceClickLi
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //Init Library HashMap
+        // Init Library HashMap
         DataValueHashMap.init()
 
         recyclerView = findViewById(R.id.recyclerview)
@@ -61,6 +61,4 @@ class MainActivity : AppCompatActivity(), JsonToFormClickListener, ChoiceClickLi
     override fun onItemClick(position: Int, choice: Choice) {
         //
     }
-
-
 }
