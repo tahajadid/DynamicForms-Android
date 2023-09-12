@@ -8,18 +8,24 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dynamicforms.Constants.ListOfModel
+import com.example.dynamicforms.data.Choice
 import com.example.dynamicforms.util.adapters.FormAdapter
 import com.example.dynamicforms.util.interfaces.JsonToFormClickListener
 import com.example.dynamicforms.util.models.JSONModel
 import com.example.dynamicforms.util.sigleton.DataValueHashMap
 import com.example.dynamicforms.util.validate.CheckFieldValidations
+import com.example.dynamicforms.util.viewholder.ChoiceClickListener
 
-class MainActivity : AppCompatActivity(), JsonToFormClickListener {
+class MainActivity : AppCompatActivity(), JsonToFormClickListener, ChoiceClickListener
+{
 
     var recyclerView: RecyclerView? = null
     var mAdapter: FormAdapter? = null
     var jsonModelList: ArrayList<JSONModel> = ArrayList<JSONModel>()
 
+    companion object {
+        lateinit var activityInstance: MainActivity
+    }
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +38,7 @@ class MainActivity : AppCompatActivity(), JsonToFormClickListener {
         recyclerView = findViewById(R.id.recyclerview)
         initRecyclerView()
 
+        activityInstance = this
     }
 
     private fun initRecyclerView() {
@@ -51,6 +58,9 @@ class MainActivity : AppCompatActivity(), JsonToFormClickListener {
             Toast.makeText(this, "Validation Failed", Toast.LENGTH_SHORT).show()
             return
         }
+    }
+    override fun onItemClick(position: Int, choice: Choice) {
+        //
     }
 
 
