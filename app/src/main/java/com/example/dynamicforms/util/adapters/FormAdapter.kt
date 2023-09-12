@@ -57,6 +57,9 @@ class FormAdapter(
             view =
                 LayoutInflater.from(mContext).inflate(R.layout.item_submit_button, viewGroup, false)
             SubmitButtonHolder(view, jsonModelList, jsonToFormClickListener)
+        } else if (viewType == FormConstants.TYPE_LIST) {
+            view = LayoutInflater.from(mContext).inflate(R.layout.item_bill_choice, viewGroup, false)
+            ChoiceListHolder(view, jsonModelList)
         } else if (viewType == FormConstants.TYPE_CHECKBOX) {
             view = LayoutInflater.from(mContext).inflate(R.layout.item_checkbox, viewGroup, false)
             CheckboxViewHolder(view, jsonModelList)
@@ -242,6 +245,8 @@ class FormAdapter(
             FormConstants.TYPE_DATE
         } else if (type == FormConstants.TYPE_SUBMIT_BUTTON) {
             FormConstants.TYPE_SUBMIT_BUTTON
+        } else if (type == FormConstants.TYPE_LIST) {
+            FormConstants.TYPE_LIST
         } else if (type == FormConstants.TYPE_CHECKBOX) {
             FormConstants.TYPE_CHECKBOX
         } else if (type == FormConstants.TYPE_ADD_AGAIN_BUTTON) {

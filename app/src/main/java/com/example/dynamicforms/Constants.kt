@@ -35,6 +35,17 @@ object Constants {
             4,
         true,
         listOf()),
+        JSONModel(
+            "edittext_1",
+            "edittext_1",
+            11,
+            "edittext_1",
+            "edittext_1",
+            "edittext_1",
+            true,
+            4,
+            true,
+            listOf()),
         JSONModel(),
         JSONModel(
             "radio_group_1",
@@ -59,7 +70,8 @@ object Constants {
                 ListModel(
                     3,
                     "Radio 4"),
-            ))
+            )
+        )
     )
 
 }

@@ -10,6 +10,7 @@ object FormConstants {
     const val TYPE_CHECKBOX = 7
     const val TYPE_ADD_AGAIN_BUTTON = 9
     const val TYPE_SUBMIT_BUTTON = 10
+    const val TYPE_LIST = 11
 
 
     const val EMPTY_STRING = ""
