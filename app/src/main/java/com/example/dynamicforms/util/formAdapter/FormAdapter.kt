@@ -15,11 +15,10 @@ import com.example.dynamicforms.util.FormConstants
 import com.example.dynamicforms.util.interfaces.JsonToFormClickListener
 import com.example.dynamicforms.util.models.JSONModel
 import com.example.dynamicforms.util.sigleton.DataValueHashMap
-import com.example.dynamicforms.util.viewholder.*
+import com.example.dynamicforms.util.viewholder.* // ktlint-disable no-wildcard-imports
 import com.example.dynamicforms.util.viewholder.checkBoxHolder.BindCheckBox
 import com.example.dynamicforms.util.viewholder.checkBoxHolder.CheckboxViewHolder
-import com.example.dynamicforms.util.viewholder.editTextHolder.BindEditText
-import com.example.dynamicforms.util.viewholder.editTextHolder.EditTextViewHolder
+import com.example.dynamicforms.util.viewholder.customEditTextHolder.CustomEditTextHolder
 import com.example.dynamicforms.util.viewholder.listHolder.ChoiceListHolder
 
 class FormAdapter(
@@ -37,9 +36,6 @@ class FormAdapter(
         return if (viewType == FormConstants.TYPE_TEXT) {
             view = LayoutInflater.from(mContext).inflate(R.layout.item_textview, viewGroup, false)
             TextViewHolder(view, jsonModelList)
-        } else if (viewType == FormConstants.TYPE_EDITTEXT) {
-            view = LayoutInflater.from(mContext).inflate(R.layout.item_edittext, viewGroup, false)
-            EditTextViewHolder(view, jsonModelList)
         } else if (viewType == FormConstants.TYPE_SPINNER) {
             view = LayoutInflater.from(mContext).inflate(R.layout.item_spinner, viewGroup, false)
             SpinnerViewHolder(view, jsonModelList)
@@ -53,8 +49,7 @@ class FormAdapter(
             view = LayoutInflater.from(mContext).inflate(R.layout.item_date, viewGroup, false)
             DateViewHolder(view, jsonModelList)
         } else if (viewType == FormConstants.TYPE_SUBMIT_BUTTON) {
-            view =
-                LayoutInflater.from(mContext).inflate(R.layout.item_submit_button, viewGroup, false)
+            view = LayoutInflater.from(mContext).inflate(R.layout.item_submit_button, viewGroup, false)
             SubmitButtonHolder(view, jsonModelList, jsonToFormClickListener)
         } else if (viewType == FormConstants.TYPE_LIST) {
             view = LayoutInflater.from(mContext).inflate(R.layout.item_bill_choice, viewGroup, false)
@@ -62,9 +57,9 @@ class FormAdapter(
         } else if (viewType == FormConstants.TYPE_CHECKBOX) {
             view = LayoutInflater.from(mContext).inflate(R.layout.item_checkbox, viewGroup, false)
             CheckboxViewHolder(view, jsonModelList)
-        } else if (viewType == FormConstants.TYPE_ADD_AGAIN_BUTTON) {
-            view = LayoutInflater.from(mContext).inflate(R.layout.item_add_again, viewGroup, false)
-            AddAgainButtonHolder(view, jsonModelList, jsonToFormClickListener)
+        } else if (viewType == FormConstants.TYPE_CUSTOM_EDITTEXT) {
+            view = LayoutInflater.from(mContext).inflate(R.layout.item_custom_edit_text, viewGroup, false)
+            CustomEditTextHolder(view, jsonModelList)
         } else {
             view = LayoutInflater.from(mContext).inflate(R.layout.item_space, viewGroup, false)
             SpaceViewHolder(view, jsonModelList)
@@ -78,8 +73,6 @@ class FormAdapter(
         }
         if (holder is TextViewHolder) {
             bindTextView(holder, position)
-        } else if (holder is EditTextViewHolder) {
-            BindEditText.bindEditText(jsonModelList, holder, position)
         } else if (holder is SpinnerViewHolder) {
             bindSpinner(holder, position)
         } else if (holder is RadioViewHolder) {
@@ -92,14 +85,7 @@ class FormAdapter(
             bindSubmitButton(holder, position)
         } else if (holder is CheckboxViewHolder) {
             BindCheckBox.bindCheckBox(jsonModelList, holder, position)
-        } else if (holder is AddAgainButtonHolder) {
-            btnAddAgainButton(holder, position)
         }
-    }
-
-    private fun btnAddAgainButton(holder: AddAgainButtonHolder, position: Int) {
-        val jsonModel = jsonModelList[position]
-        holder.btnAddAgain.setText(jsonModel.text)
     }
 
     private fun bindSubmitButton(holder: SubmitButtonHolder, position: Int) {
@@ -207,8 +193,8 @@ class FormAdapter(
         val type: Int? = jsonModelList[position].type
         return if (type == FormConstants.TYPE_TEXT) {
             FormConstants.TYPE_TEXT
-        } else if (type == FormConstants.TYPE_EDITTEXT) {
-            FormConstants.TYPE_EDITTEXT
+        } else if (type == FormConstants.TYPE_CUSTOM_EDITTEXT) {
+            FormConstants.TYPE_CUSTOM_EDITTEXT
         } else if (type == FormConstants.TYPE_SPINNER) {
             FormConstants.TYPE_SPINNER
         } else if (type == FormConstants.TYPE_RADIO) {
@@ -223,8 +209,6 @@ class FormAdapter(
             FormConstants.TYPE_LIST
         } else if (type == FormConstants.TYPE_CHECKBOX) {
             FormConstants.TYPE_CHECKBOX
-        } else if (type == FormConstants.TYPE_ADD_AGAIN_BUTTON) {
-            FormConstants.TYPE_ADD_AGAIN_BUTTON
         } else {
             FormConstants.TYPE_SPACE
         }
