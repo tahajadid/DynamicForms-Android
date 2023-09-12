@@ -11,11 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.dynamicforms.R
 import com.example.dynamicforms.data.Choice
 
-
 class ChoiceItemAdapter(
     private val context: Context?,
     private var listOfRecharge: ArrayList<Choice>,
-    private val choiceClickListener: ChoiceClickListener
+    private val choiceClickListener: ChoiceClickListener,
 ) : RecyclerView.Adapter<ChoiceItemAdapter.ViewHolder>() {
 
     /**

@@ -16,8 +16,7 @@ import com.example.dynamicforms.util.sigleton.DataValueHashMap
 import com.example.dynamicforms.util.validate.CheckFieldValidations
 import com.example.dynamicforms.util.viewholder.listHolder.ChoiceClickListener
 
-class MainActivity : AppCompatActivity(), JsonToFormClickListener, ChoiceClickListener
-{
+class MainActivity : AppCompatActivity(), JsonToFormClickListener, ChoiceClickListener {
 
     var recyclerView: RecyclerView? = null
     var mAdapter: FormAdapter? = null
@@ -32,7 +31,7 @@ class MainActivity : AppCompatActivity(), JsonToFormClickListener, ChoiceClickLi
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //Init Library HashMap
+        // Init Library HashMap
         DataValueHashMap.init()
 
         recyclerView = findViewById(R.id.recyclerview)
@@ -62,6 +61,4 @@ class MainActivity : AppCompatActivity(), JsonToFormClickListener, ChoiceClickLi
     override fun onItemClick(position: Int, choice: Choice) {
         //
     }
-
-
 }

@@ -12,7 +12,6 @@ object FormConstants {
     const val TYPE_SUBMIT_BUTTON = 10
     const val TYPE_LIST = 11
 
-
     const val EMPTY_STRING = ""
     const val INPUT_TYPE_NUMBER = "numbers"
     const val INPUT_TYPE_NUMBER_DECIMAL = "numbers_decimal"
