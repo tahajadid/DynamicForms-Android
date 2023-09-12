@@ -22,12 +22,12 @@ object Constants {
     val ListOfModel = arrayListOf<JSONModel>(
         JSONModel(),
         JSONModel(
-            "edittext_1",
-            "edittext_1",
+            "edittext_11",
+            "edittext_11",
             2,
-            "edittext_1",
-            "edittext_1",
-            "edittext_1",
+            "edittext_21",
+            "edittext_21",
+            "edittext_12",
             true,
             4,
             true,

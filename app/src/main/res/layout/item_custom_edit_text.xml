@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/editText_container"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/enter_number_rounded_bg">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editText_layout"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:textColorHint="#9C9FA5"
+            android:textSize="15sp"
+            app:boxStrokeColor="@color/color_red_dark"
+            app:expandedHintEnabled="false"
+            app:hintTextColor="#9C9FA5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editText_input"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:hint="AB123456"
+                android:inputType="text"
+                android:paddingBottom="4dp"
+                android:maxLength="10"
+                android:textAlignment="viewStart"
+                android:textColor="@color/color_red_dark"
+                android:textColorHint="@color/color_red_dark" />
+
+            <requestFocus />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/error_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="20dp"
+            android:lineHeight="18sp"
+            android:src="@drawable/ic_error"
+            android:textColor="@color/color_red"
+            app:layout_constraintBottom_toBottomOf="@+id/editText_layout"
+            app:layout_constraintEnd_toEndOf="@+id/editText_layout"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/error_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:lineHeight="18sp"
+        android:layout_marginTop="4dp"
+        android:text="Error text"
+        android:textColor="@color/color_red"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cin_layout" />
+
+</LinearLayout>

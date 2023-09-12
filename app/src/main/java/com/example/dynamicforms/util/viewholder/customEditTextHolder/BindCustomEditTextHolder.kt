@@ -1,4 +1,4 @@
-package com.example.dynamicforms.util.viewholder.editTextHolder
+package com.example.dynamicforms.util.viewholder.customEditTextHolder
 
 import android.text.InputFilter
 import android.text.InputType
@@ -9,9 +9,9 @@ import com.example.dynamicforms.util.FormConstants
 import com.example.dynamicforms.util.models.JSONModel
 import com.example.dynamicforms.util.sigleton.DataValueHashMap
 
-object BindEditText {
+object BindCustomEditTextHolder {
 
-    fun bindEditText(jsonModelList: ArrayList<JSONModel>, holder: EditTextViewHolder, position: Int) {
+    fun bindCustomEditText(jsonModelList: ArrayList<JSONModel>, holder: CustomEditTextHolder, position: Int) {
         val jsonModel = jsonModelList[position]
         holder.layoutEdittext.editText!!.setOnEditorActionListener { v, actionId, event ->
             if (event != null && event.keyCode == KeyEvent.KEYCODE_ENTER || actionId == EditorInfo.IME_ACTION_NEXT) {
