@@ -35,7 +35,7 @@ class ChoiceListHolder(itemView: View, jsonModelList: List<JSONModel>) :
         // we set a GridLayout to have the same margin and size
         // of the favourite items like the other item
         listOfChoice.apply {
-            layoutManager = GridLayoutManager(this.context, 1)
+            layoutManager = GridLayoutManager(this.context, 2)
             adapter = choiceItemAdapter
         }
     }

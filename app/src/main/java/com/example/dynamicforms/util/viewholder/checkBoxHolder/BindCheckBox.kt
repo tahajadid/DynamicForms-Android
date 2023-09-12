@@ -1,9 +1,8 @@
-package com.example.dynamicforms.util.adapters
+package com.example.dynamicforms.util.viewholder.checkBoxHolder
 
 import com.example.dynamicforms.util.FormConstants
 import com.example.dynamicforms.util.models.JSONModel
 import com.example.dynamicforms.util.sigleton.DataValueHashMap
-import com.example.dynamicforms.util.viewholder.CheckboxViewHolder
 
 object BindCheckBox {
 

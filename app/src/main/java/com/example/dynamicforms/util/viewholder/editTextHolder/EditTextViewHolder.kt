@@ -1,4 +1,4 @@
-package com.example.dynamicforms.util.viewholder
+package com.example.dynamicforms.util.viewholder.editTextHolder
 
 import android.text.Editable
 import android.text.TextWatcher
