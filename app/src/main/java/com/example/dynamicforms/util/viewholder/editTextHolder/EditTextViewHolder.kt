@@ -24,7 +24,8 @@ class EditTextViewHolder(itemView: View, jsonModelList: List<JSONModel>) :
                 }
                 DataValueHashMap.put(
                     jsonModelList[adapterPosition].id.toString(),
-                    editable.toString())
+                    editable.toString(),
+                )
                 if (editable.length > 0 && layoutEdittext.isErrorEnabled) {
                     layoutEdittext.isErrorEnabled = false
                 }

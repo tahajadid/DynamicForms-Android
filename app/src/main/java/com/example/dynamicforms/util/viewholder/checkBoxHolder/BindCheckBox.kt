@@ -15,8 +15,8 @@ object BindCheckBox {
         ) {
             DataValueHashMap.put(
                 jsonModelList[position].id.toString(),
-                if (!holder.checkBox.isChecked) FormConstants.EMPTY_STRING else holder.checkBox.text.toString())
+                if (!holder.checkBox.isChecked) FormConstants.EMPTY_STRING else holder.checkBox.text.toString(),
+            )
         }
     }
-
 }

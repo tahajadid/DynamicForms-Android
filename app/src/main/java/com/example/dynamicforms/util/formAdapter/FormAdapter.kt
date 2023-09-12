@@ -12,13 +12,13 @@ import android.widget.RadioGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dynamicforms.R
 import com.example.dynamicforms.util.FormConstants
-import com.example.dynamicforms.util.viewholder.checkBoxHolder.BindCheckBox
-import com.example.dynamicforms.util.viewholder.editTextHolder.BindEditText
 import com.example.dynamicforms.util.interfaces.JsonToFormClickListener
 import com.example.dynamicforms.util.models.JSONModel
 import com.example.dynamicforms.util.sigleton.DataValueHashMap
 import com.example.dynamicforms.util.viewholder.*
+import com.example.dynamicforms.util.viewholder.checkBoxHolder.BindCheckBox
 import com.example.dynamicforms.util.viewholder.checkBoxHolder.CheckboxViewHolder
+import com.example.dynamicforms.util.viewholder.editTextHolder.BindEditText
 import com.example.dynamicforms.util.viewholder.editTextHolder.EditTextViewHolder
 import com.example.dynamicforms.util.viewholder.listHolder.ChoiceListHolder
 
@@ -193,7 +193,6 @@ class FormAdapter(
             holder.spinner.setSelection(0)
         }
     }
-
 
     private fun bindTextView(holder: TextViewHolder, position: Int) {
         val jsonModel = jsonModelList[position]
