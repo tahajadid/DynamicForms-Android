@@ -14,7 +14,7 @@ import com.example.dynamicforms.util.interfaces.JsonToFormClickListener
 import com.example.dynamicforms.util.models.JSONModel
 import com.example.dynamicforms.util.sigleton.DataValueHashMap
 import com.example.dynamicforms.util.validate.CheckFieldValidations
-import com.example.dynamicforms.util.viewholder.ChoiceClickListener
+import com.example.dynamicforms.util.viewholder.listHolder.ChoiceClickListener
 
 class MainActivity : AppCompatActivity(), JsonToFormClickListener, ChoiceClickListener
 {

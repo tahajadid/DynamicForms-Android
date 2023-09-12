@@ -1,4 +1,4 @@
-package com.example.dynamicforms.util.viewholder
+package com.example.dynamicforms.util.viewholder.listHolder
 
 import com.example.dynamicforms.data.Choice
 

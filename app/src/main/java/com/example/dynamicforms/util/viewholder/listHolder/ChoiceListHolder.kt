@@ -1,4 +1,4 @@
-package com.example.dynamicforms.util.viewholder
+package com.example.dynamicforms.util.viewholder.listHolder
 
 import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager

@@ -22,6 +22,7 @@ import com.example.dynamicforms.util.interfaces.JsonToFormClickListener
 import com.example.dynamicforms.util.models.JSONModel
 import com.example.dynamicforms.util.sigleton.DataValueHashMap
 import com.example.dynamicforms.util.viewholder.*
+import com.example.dynamicforms.util.viewholder.listHolder.ChoiceListHolder
 
 class FormAdapter(
     var jsonModelList: ArrayList<JSONModel>,
