@@ -16,8 +16,7 @@ import com.example.dynamicforms.util.sigleton.DataValueHashMap
 import com.example.dynamicforms.util.validate.CheckFieldValidations
 import com.example.dynamicforms.util.viewholder.listHolder.ChoiceClickListener
 
-class MainActivity : AppCompatActivity(), JsonToFormClickListener, ChoiceClickListener
-{
+class MainActivity : AppCompatActivity(), JsonToFormClickListener, ChoiceClickListener {
 
     var recyclerView: RecyclerView? = null
     var mAdapter: FormAdapter? = null
