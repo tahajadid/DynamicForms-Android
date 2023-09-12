@@ -1,4 +1,4 @@
-package com.example.dynamicforms.util.viewholder
+package com.example.dynamicforms.util.viewholder.checkBoxHolder
 
 import android.view.View
 import android.widget.CheckBox

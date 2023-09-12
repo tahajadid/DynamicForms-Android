@@ -1,9 +1,8 @@
-package com.example.dynamicforms.util.adapters
+package com.example.dynamicforms.util.viewholder.checkBoxHolder
 
 import com.example.dynamicforms.util.FormConstants
 import com.example.dynamicforms.util.models.JSONModel
 import com.example.dynamicforms.util.sigleton.DataValueHashMap
-import com.example.dynamicforms.util.viewholder.CheckboxViewHolder
 
 object BindCheckBox {
 
@@ -16,8 +15,8 @@ object BindCheckBox {
         ) {
             DataValueHashMap.put(
                 jsonModelList[position].id.toString(),
-                if (!holder.checkBox.isChecked) FormConstants.EMPTY_STRING else holder.checkBox.text.toString())
+                if (!holder.checkBox.isChecked) FormConstants.EMPTY_STRING else holder.checkBox.text.toString(),
+            )
         }
     }
-
 }

@@ -5,8 +5,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.dynamicforms.util.FormConstants
 import com.example.dynamicforms.util.models.JSONModel
 import com.example.dynamicforms.util.sigleton.DataValueHashMap
-import com.example.dynamicforms.util.viewholder.CheckboxViewHolder
-import com.example.dynamicforms.util.viewholder.EditTextViewHolder
+import com.example.dynamicforms.util.viewholder.checkBoxHolder.CheckboxViewHolder
+import com.example.dynamicforms.util.viewholder.editTextHolder.EditTextViewHolder
 import com.example.dynamicforms.util.viewholder.RadioViewHolder
 
 
