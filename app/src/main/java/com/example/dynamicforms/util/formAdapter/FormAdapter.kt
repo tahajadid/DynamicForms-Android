@@ -40,9 +40,6 @@ class FormAdapter(
         } else if (viewType == FormConstants.TYPE_SPINNER) {
             view = LayoutInflater.from(mContext).inflate(R.layout.item_spinner, viewGroup, false)
             SpinnerViewHolder(view, jsonModelList)
-        } else if (viewType == FormConstants.TYPE_RADIO) {
-            view = LayoutInflater.from(mContext).inflate(R.layout.item_radio, viewGroup, false)
-            RadioViewHolder(view, jsonModelList)
         } else if (viewType == FormConstants.TYPE_SPACE) {
             view = LayoutInflater.from(mContext).inflate(R.layout.item_space, viewGroup, false)
             SpaceViewHolder(view, jsonModelList)
@@ -78,8 +75,6 @@ class FormAdapter(
             BindCustomEditTextHolder.bindCustomEditText(jsonModelList, holder, position)
         } else if (holder is SpinnerViewHolder) {
             bindSpinner(holder, position)
-        } else if (holder is RadioViewHolder) {
-            bindRadio(holder, position)
         } else if (holder is SpaceViewHolder) {
             bindSpace(holder, position)
         } else if (holder is DateViewHolder) {
@@ -108,59 +103,6 @@ class FormAdapter(
 
     private fun bindSpace(holder: SpaceViewHolder, position: Int) {
         val jsonModel = jsonModelList[position]
-    }
-
-    private fun bindRadio(holder: RadioViewHolder, position: Int) {
-        val jsonModel = jsonModelList[position]
-        holder.txtRadio.setText(jsonModel.text)
-        holder.rGroup.removeAllViews()
-        for (i in 0 until jsonModel.list!!.size) {
-            val radioButton = RadioButton(mContext)
-            radioButton.setText(jsonModel.list!!.get(i).indexText)
-            radioButton.id = jsonModel.list!!.get(i).index!!
-            radioButton.setButtonDrawable(R.drawable.toggle_states)
-            radioButton.setPadding(16, 24, 8, 8)
-            radioButton.setTextColor(mContext.resources.getColor(R.color.black))
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                radioButton.backgroundTintList =
-                    ColorStateList.valueOf(mContext.resources.getColor(R.color.black))
-            }
-            val params = RadioGroup.LayoutParams(
-                RadioGroup.LayoutParams.WRAP_CONTENT,
-                RadioGroup.LayoutParams.WRAP_CONTENT,
-            )
-            params.setMargins(16, 24, 8, 8)
-            holder.rGroup.addView(radioButton, params)
-        }
-        if (position != -1 && DataValueHashMap.getValue(jsonModelList[position].id)
-                .equals(FormConstants.EMPTY_STRING, ignoreCase = true)
-        ) {
-            DataValueHashMap.put(
-                jsonModelList[position].id.toString(),
-                if (holder.rGroup.checkedRadioButtonId == -1) {
-                    FormConstants.EMPTY_STRING
-                } else {
-                    (
-                        holder.itemView.findViewById<View>(
-                            holder.rGroup.checkedRadioButtonId,
-                        ) as RadioButton
-                        ).text.toString()
-                },
-            )
-        }
-        outer@ for (i in 0 until holder.rGroup.childCount) {
-            val id = holder.rGroup.getChildAt(i).id
-            val radioButton = holder.rGroup.findViewById<RadioButton>(id)
-            if (!DataValueHashMap.getValue(jsonModel.id).isEmpty()) {
-                if (radioButton.text.toString()
-                        .equals(DataValueHashMap.getValue(jsonModel.id), ignoreCase = true)
-                ) {
-                    holder.rGroup.clearCheck()
-                    radioButton.isChecked = true
-                    break@outer
-                }
-            }
-        }
     }
 
     private fun bindSpinner(holder: SpinnerViewHolder, position: Int) {
@@ -200,8 +142,6 @@ class FormAdapter(
             FormConstants.TYPE_CUSTOM_EDITTEXT
         } else if (type == FormConstants.TYPE_SPINNER) {
             FormConstants.TYPE_SPINNER
-        } else if (type == FormConstants.TYPE_RADIO) {
-            FormConstants.TYPE_RADIO
         } else if (type == FormConstants.TYPE_SPACE) {
             FormConstants.TYPE_SPACE
         } else if (type == FormConstants.TYPE_DATE) {

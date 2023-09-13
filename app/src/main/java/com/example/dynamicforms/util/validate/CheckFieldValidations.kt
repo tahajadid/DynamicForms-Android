@@ -1,11 +1,9 @@
 package com.example.dynamicforms.util.validate
 
-import android.widget.RadioButton
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dynamicforms.util.FormConstants
 import com.example.dynamicforms.util.models.JSONModel
 import com.example.dynamicforms.util.sigleton.DataValueHashMap
-import com.example.dynamicforms.util.viewholder.RadioViewHolder
 import com.example.dynamicforms.util.viewholder.checkBoxHolder.CheckboxViewHolder
 import com.example.dynamicforms.util.viewholder.customEditTextHolder.CustomEditTextHolder
 
@@ -17,11 +15,6 @@ object CheckFieldValidations {
             if (viewHolder?.itemView != null) {
                 if (viewHolder is CustomEditTextHolder) {
                     viewHolder.layoutEdittext.isErrorEnabled = false
-                } else if (viewHolder is RadioViewHolder) {
-                    for (j in 0 until viewHolder.rGroup.childCount) {
-                        (viewHolder.rGroup.getChildAt(j) as RadioButton).error =
-                            null
-                    }
                 } else if (viewHolder is CheckboxViewHolder) {
                     viewHolder.checkBox.error = null
                 }
@@ -46,15 +39,6 @@ object CheckFieldValidations {
                     ) {
                         (viewHolder as CheckboxViewHolder).checkBox.error =
                             FormConstants.FIELD_REQUIRED
-                        recyclerView.smoothScrollToPosition(i)
-                        isValidated[0] = false
-                    } else if (jsonModel.type == FormConstants.TYPE_RADIO &&
-                        fieldValue.equals(EMPTY_STRING, ignoreCase = true)
-                    ) {
-                        for (j in 0 until (viewHolder as RadioViewHolder).rGroup.childCount) {
-                            (viewHolder.rGroup.getChildAt(j) as RadioButton).error =
-                                FormConstants.FIELD_REQUIRED
-                        }
                         recyclerView.smoothScrollToPosition(i)
                         isValidated[0] = false
                     }
