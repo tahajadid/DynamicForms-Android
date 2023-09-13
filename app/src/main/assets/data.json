@@ -44,5 +44,32 @@
     "is_required": true,
     "max_length": 30,
     "type": 2
+  },
+  {
+    "_id": "edittext_4",
+    "text": "Hi! I'm edittext(Enter text) *Required",
+    "hint": "Hi! I'm edittext(Enter text)",
+    "input_type": "text",
+    "is_required": true,
+    "max_length": 30,
+    "type": 2
+  },
+  {
+    "_id": "edittext_5",
+    "text": "Hi! I'm edittext(Enter text) *Required",
+    "hint": "Hi! I'm edittext(Enter text)",
+    "input_type": "text",
+    "is_required": true,
+    "max_length": 30,
+    "type": 2
+  },
+  {
+    "_id": "edittext_6",
+    "text": "Hi! I'm edittext(Enter text) *Required",
+    "hint": "Hi! I'm edittext(Enter text)",
+    "input_type": "text",
+    "is_required": true,
+    "max_length": 30,
+    "type": 2
   }
 ]
