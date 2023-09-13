@@ -23,12 +23,6 @@
     "type": 11
   },
   {
-    "_id": "text_1",
-    "text": "Hi! I'm textview",
-    "hint": "Hi! I'm textview",
-    "type": 1
-  },
-  {
     "_id": "edittext_2",
     "text": "Hi! I'm edittext(Enter Numbers Decimal)",
     "hint": "Hi! I'm edittext(Enter Numbers Decimal)",

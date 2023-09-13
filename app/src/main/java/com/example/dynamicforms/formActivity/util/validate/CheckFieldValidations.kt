@@ -4,7 +4,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.dynamicforms.formActivity.FormConstants
 import com.example.dynamicforms.formActivity.util.models.JSONModel
 import com.example.dynamicforms.formActivity.util.sigleton.DataValueHashMap
-import com.example.dynamicforms.formActivity.util.viewholder.checkBoxHolder.CheckboxViewHolder
 import com.example.dynamicforms.formActivity.util.viewholder.customEditTextHolder.CustomEditTextHolder
 
 object CheckFieldValidations {
@@ -15,8 +14,6 @@ object CheckFieldValidations {
             if (viewHolder?.itemView != null) {
                 if (viewHolder is CustomEditTextHolder) {
                     viewHolder.layoutEdittext.isErrorEnabled = false
-                } else if (viewHolder is CheckboxViewHolder) {
-                    viewHolder.checkBox.error = null
                 }
             }
         }
@@ -32,13 +29,6 @@ object CheckFieldValidations {
                     ) {
                         (viewHolder as CustomEditTextHolder).layoutEdittext.isErrorEnabled = true
                         viewHolder.layoutEdittext.error = FormConstants.FIELD_REQUIRED
-                        recyclerView.smoothScrollToPosition(i)
-                        isValidated[0] = false
-                    } else if (jsonModel.type == FormConstants.TYPE_CHECKBOX &&
-                        fieldValue.equals(EMPTY_STRING, ignoreCase = true)
-                    ) {
-                        (viewHolder as CheckboxViewHolder).checkBox.error =
-                            FormConstants.FIELD_REQUIRED
                         recyclerView.smoothScrollToPosition(i)
                         isValidated[0] = false
                     }

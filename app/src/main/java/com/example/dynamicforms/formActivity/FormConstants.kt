@@ -4,12 +4,15 @@ import com.example.dynamicforms.formActivity.util.models.JSONModel
 import com.example.dynamicforms.formActivity.util.models.ListModel
 
 object FormConstants {
-    const val TYPE_TEXT = 1
+
+    const val TYPE_A = 1 // Ex: N° Contrat: "dflt": "1005-02-billContractNumber"
+    const val TYPE_N = 2 // Ex: Numéro de téléphone fixe
+    const val TYPE_G = 3 // Ex: Numéro de ligne "maxLength": 15
+    const val TYPE_S = 4 // Ex: Service - (list) in merchantServiceFieldListOfValues
+
     const val TYPE_CUSTOM_EDITTEXT = 2
     const val TYPE_SPINNER = 3
     const val TYPE_DATE = 5
-    const val TYPE_SPACE = 6
-    const val TYPE_CHECKBOX = 7
     const val TYPE_SUBMIT_BUTTON = 10
     const val TYPE_LIST = 11
 

@@ -12,8 +12,6 @@ import com.example.dynamicforms.formActivity.util.interfaces.JsonToFormClickList
 import com.example.dynamicforms.formActivity.util.models.JSONModel
 import com.example.dynamicforms.formActivity.util.sigleton.DataValueHashMap
 import com.example.dynamicforms.formActivity.util.viewholder.* // ktlint-disable no-wildcard-imports
-import com.example.dynamicforms.formActivity.util.viewholder.checkBoxHolder.BindCheckBox
-import com.example.dynamicforms.formActivity.util.viewholder.checkBoxHolder.CheckboxViewHolder
 import com.example.dynamicforms.formActivity.util.viewholder.customEditTextHolder.BindCustomEditTextHolder
 import com.example.dynamicforms.formActivity.util.viewholder.customEditTextHolder.CustomEditTextHolder
 import com.example.dynamicforms.formActivity.util.viewholder.listHolder.ChoiceListHolder
@@ -30,15 +28,9 @@ class FormAdapter(
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view: View
-        return if (viewType == FormConstants.TYPE_TEXT) {
-            view = LayoutInflater.from(mContext).inflate(R.layout.item_textview, viewGroup, false)
-            TextViewHolder(view, jsonModelList)
-        } else if (viewType == FormConstants.TYPE_SPINNER) {
+        return if (viewType == FormConstants.TYPE_SPINNER) {
             view = LayoutInflater.from(mContext).inflate(R.layout.item_spinner, viewGroup, false)
             SpinnerViewHolder(view, jsonModelList)
-        } else if (viewType == FormConstants.TYPE_SPACE) {
-            view = LayoutInflater.from(mContext).inflate(R.layout.item_space, viewGroup, false)
-            SpaceViewHolder(view, jsonModelList)
         } else if (viewType == FormConstants.TYPE_DATE) {
             view = LayoutInflater.from(mContext).inflate(R.layout.item_date, viewGroup, false)
             DateViewHolder(view, jsonModelList)
@@ -48,15 +40,9 @@ class FormAdapter(
         } else if (viewType == FormConstants.TYPE_LIST) {
             view = LayoutInflater.from(mContext).inflate(R.layout.item_bill_choice, viewGroup, false)
             ChoiceListHolder(view, jsonModelList)
-        } else if (viewType == FormConstants.TYPE_CHECKBOX) {
-            view = LayoutInflater.from(mContext).inflate(R.layout.item_checkbox, viewGroup, false)
-            CheckboxViewHolder(view, jsonModelList)
-        } else if (viewType == FormConstants.TYPE_CUSTOM_EDITTEXT) {
+        } else {
             view = LayoutInflater.from(mContext).inflate(R.layout.item_custom_edit_text, viewGroup, false)
             CustomEditTextHolder(view, jsonModelList)
-        } else {
-            view = LayoutInflater.from(mContext).inflate(R.layout.item_space, viewGroup, false)
-            SpaceViewHolder(view, jsonModelList)
         }
     }
 
@@ -65,20 +51,19 @@ class FormAdapter(
         if (position == -1) {
             return
         }
-        if (holder is TextViewHolder) {
-            bindTextView(holder, position)
-        } else if (holder is CustomEditTextHolder) {
-            BindCustomEditTextHolder.bindCustomEditText(jsonModelList, holder, position)
-        } else if (holder is SpinnerViewHolder) {
-            bindSpinner(holder, position)
-        } else if (holder is SpaceViewHolder) {
-            bindSpace(holder, position)
-        } else if (holder is DateViewHolder) {
-            bindDate(holder, position)
-        } else if (holder is SubmitButtonHolder) {
-            bindSubmitButton(holder, position)
-        } else if (holder is CheckboxViewHolder) {
-            BindCheckBox.bindCheckBox(jsonModelList, holder, position)
+        when (holder) {
+            is CustomEditTextHolder -> {
+                BindCustomEditTextHolder.bindCustomEditText(jsonModelList, holder, position)
+            }
+            is SpinnerViewHolder -> {
+                bindSpinner(holder, position)
+            }
+            is DateViewHolder -> {
+                bindDate(holder, position)
+            }
+            is SubmitButtonHolder -> {
+                bindSubmitButton(holder, position)
+            }
         }
     }
 
@@ -95,10 +80,6 @@ class FormAdapter(
         } else {
             holder.layoutDate.editText!!.setText(FormConstants.EMPTY_STRING)
         }
-    }
-
-    private fun bindSpace(holder: SpaceViewHolder, position: Int) {
-        val jsonModel = jsonModelList[position]
     }
 
     private fun bindSpinner(holder: SpinnerViewHolder, position: Int) {
@@ -121,35 +102,22 @@ class FormAdapter(
         }
     }
 
-    private fun bindTextView(holder: TextViewHolder, position: Int) {
-        val jsonModel = jsonModelList[position]
-        holder.txtHead.setText(jsonModel.text)
-    }
-
     override fun getItemCount(): Int {
         return jsonModelList.size
     }
 
     override fun getItemViewType(position: Int): Int {
         val type: Int? = jsonModelList[position].type
-        return if (type == FormConstants.TYPE_TEXT) {
-            FormConstants.TYPE_TEXT
-        } else if (type == FormConstants.TYPE_CUSTOM_EDITTEXT) {
+        return if (type == FormConstants.TYPE_CUSTOM_EDITTEXT) {
             FormConstants.TYPE_CUSTOM_EDITTEXT
         } else if (type == FormConstants.TYPE_SPINNER) {
             FormConstants.TYPE_SPINNER
-        } else if (type == FormConstants.TYPE_SPACE) {
-            FormConstants.TYPE_SPACE
         } else if (type == FormConstants.TYPE_DATE) {
             FormConstants.TYPE_DATE
         } else if (type == FormConstants.TYPE_SUBMIT_BUTTON) {
             FormConstants.TYPE_SUBMIT_BUTTON
-        } else if (type == FormConstants.TYPE_LIST) {
-            FormConstants.TYPE_LIST
-        } else if (type == FormConstants.TYPE_CHECKBOX) {
-            FormConstants.TYPE_CHECKBOX
         } else {
-            FormConstants.TYPE_SPACE
+            FormConstants.TYPE_LIST
         }
     }
 
