@@ -14,14 +14,18 @@ import com.google.android.material.textfield.TextInputLayout
 class CustomEditTextHolder(itemView: View, jsonModelList: List<JSONModel>) :
     RecyclerView.ViewHolder(itemView) {
     var layoutEdittext: TextInputLayout
+    var editTextIcon: ImageView
     var errorText: TextView
     var errorIcon: ImageView
 
     init {
         layoutEdittext = itemView.findViewById(R.id.editText_layout)
+        editTextIcon = itemView.findViewById(R.id.editText_icon)
         errorText = itemView.findViewById(R.id.error_text)
         errorIcon = itemView.findViewById(R.id.error_icon)
+
         hideErrorElements()
+        editTextIcon.visibility = View.GONE
 
         layoutEdittext.editText!!.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}

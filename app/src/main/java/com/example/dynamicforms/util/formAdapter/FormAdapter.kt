@@ -1,14 +1,10 @@
 package com.example.dynamicforms.util.formAdapter
 
 import android.content.Context
-import android.content.res.ColorStateList
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.RadioButton
-import android.widget.RadioGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dynamicforms.R
 import com.example.dynamicforms.util.FormConstants
