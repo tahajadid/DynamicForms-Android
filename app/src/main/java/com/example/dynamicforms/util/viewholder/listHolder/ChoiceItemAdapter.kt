@@ -5,11 +5,12 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dynamicforms.R
-import com.example.dynamicforms.data.Choice
+import com.example.dynamicforms.util.models.Choice
 
 class ChoiceItemAdapter(
     private val context: Context?,
@@ -22,23 +23,28 @@ class ChoiceItemAdapter(
      */
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        lateinit var amount: TextView
+        lateinit var selectionText: TextView
+        lateinit var selectionIcon: ImageView
+
         lateinit var amountContainer: ConstraintLayout
 
         /**
          * Show the data in the views
          */
         fun bindView(item: Choice, position: Int, choiceClickListener: ChoiceClickListener) {
-            amount = itemView.findViewById(R.id.amount_value)
+            selectionText = itemView.findViewById(R.id.selection_text)
+            selectionIcon = itemView.findViewById(R.id.selection_icon)
             amountContainer = itemView.findViewById(R.id.amount_container)
 
-            amount.text = item.id
+            selectionText.text = item.id
 
             // item selected
             if (item.isSelected == true) {
-                amount.setTextColor(Color.BLACK)
+                selectionText.setTextColor(Color.BLACK)
+                selectionIcon.setImageResource(R.drawable.active_radio_button_icon)
             } else {
-                amount.setTextColor(Color.GREEN)
+                selectionText.setTextColor(Color.GREEN)
+                selectionIcon.setImageResource(R.drawable.inactive_radio_button_icon)
             }
 
             itemView.setOnClickListener {

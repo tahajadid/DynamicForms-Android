@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dynamicforms.MainActivity
 import com.example.dynamicforms.R
-import com.example.dynamicforms.data.Choice
+import com.example.dynamicforms.util.models.Choice
 import com.example.dynamicforms.util.models.JSONModel
 
 class ChoiceListHolder(itemView: View, jsonModelList: List<JSONModel>) :

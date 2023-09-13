@@ -19,7 +19,7 @@ object Constants {
 
     const val FIELD_REQUIRED = "*Required"
 
-    val ListOfModel = arrayListOf<JSONModel>(
+    val ListOfModel = arrayListOf(
         JSONModel(),
         JSONModel(
             "edittext_11",

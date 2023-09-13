@@ -18,6 +18,7 @@ import com.example.dynamicforms.util.sigleton.DataValueHashMap
 import com.example.dynamicforms.util.viewholder.* // ktlint-disable no-wildcard-imports
 import com.example.dynamicforms.util.viewholder.checkBoxHolder.BindCheckBox
 import com.example.dynamicforms.util.viewholder.checkBoxHolder.CheckboxViewHolder
+import com.example.dynamicforms.util.viewholder.customEditTextHolder.BindCustomEditTextHolder
 import com.example.dynamicforms.util.viewholder.customEditTextHolder.CustomEditTextHolder
 import com.example.dynamicforms.util.viewholder.listHolder.ChoiceListHolder
 
@@ -73,6 +74,8 @@ class FormAdapter(
         }
         if (holder is TextViewHolder) {
             bindTextView(holder, position)
+        } else if (holder is CustomEditTextHolder) {
+            BindCustomEditTextHolder.bindCustomEditText(jsonModelList, holder, position)
         } else if (holder is SpinnerViewHolder) {
             bindSpinner(holder, position)
         } else if (holder is RadioViewHolder) {
