@@ -17,7 +17,7 @@ object CommonUtils {
             `is`.close()
             String(buffer, Charset.forName("UTF-8"))
         } catch (ex: IOException) {
-            Log.d(com.example.dynamicforms.formActivity.util.CommonUtils.TAG, "Exception Occurred : " + ex.message)
+            Log.d(TAG, "Exception Occurred : " + ex.message)
             return null
         }
         return json

@@ -28,21 +28,19 @@ class FormAdapter(
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view: View
-        return if (viewType == FormConstants.TYPE_SPINNER) {
-            view = LayoutInflater.from(mContext).inflate(R.layout.item_spinner, viewGroup, false)
-            SpinnerViewHolder(view, jsonModelList)
-        } else if (viewType == FormConstants.TYPE_DATE) {
-            view = LayoutInflater.from(mContext).inflate(R.layout.item_date, viewGroup, false)
-            DateViewHolder(view, jsonModelList)
-        } else if (viewType == FormConstants.TYPE_SUBMIT_BUTTON) {
-            view = LayoutInflater.from(mContext).inflate(R.layout.item_submit_button, viewGroup, false)
-            SubmitButtonHolder(view, jsonModelList, jsonToFormClickListener)
-        } else if (viewType == FormConstants.TYPE_LIST) {
-            view = LayoutInflater.from(mContext).inflate(R.layout.item_bill_choice, viewGroup, false)
-            ChoiceListHolder(view, jsonModelList)
-        } else {
-            view = LayoutInflater.from(mContext).inflate(R.layout.item_custom_edit_text, viewGroup, false)
-            CustomEditTextHolder(view, jsonModelList)
+        return when (viewType) {
+            FormConstants.TYPE_SPINNER -> {
+                view = LayoutInflater.from(mContext).inflate(R.layout.item_spinner, viewGroup, false)
+                SpinnerViewHolder(view, jsonModelList)
+            }
+            FormConstants.TYPE_LIST -> {
+                view = LayoutInflater.from(mContext).inflate(R.layout.item_bill_choice, viewGroup, false)
+                ChoiceListHolder(view, jsonModelList)
+            }
+            else -> {
+                view = LayoutInflater.from(mContext).inflate(R.layout.item_custom_edit_text, viewGroup, false)
+                CustomEditTextHolder(view, jsonModelList)
+            }
         }
     }
 
@@ -58,27 +56,6 @@ class FormAdapter(
             is SpinnerViewHolder -> {
                 bindSpinner(holder, position)
             }
-            is DateViewHolder -> {
-                bindDate(holder, position)
-            }
-            is SubmitButtonHolder -> {
-                bindSubmitButton(holder, position)
-            }
-        }
-    }
-
-    private fun bindSubmitButton(holder: SubmitButtonHolder, position: Int) {
-        val jsonModel = jsonModelList[position]
-        holder.btnSubmit.setText(jsonModel.text)
-    }
-
-    private fun bindDate(holder: DateViewHolder, position: Int) {
-        val jsonModel = jsonModelList[position]
-        holder.layoutDate.setHint(jsonModel.text)
-        if (!DataValueHashMap.getValue(jsonModel.id).isEmpty()) {
-            holder.layoutDate.editText!!.setText(DataValueHashMap.getValue(jsonModel.id))
-        } else {
-            holder.layoutDate.editText!!.setText(FormConstants.EMPTY_STRING)
         }
     }
 
@@ -112,10 +89,6 @@ class FormAdapter(
             FormConstants.TYPE_CUSTOM_EDITTEXT
         } else if (type == FormConstants.TYPE_SPINNER) {
             FormConstants.TYPE_SPINNER
-        } else if (type == FormConstants.TYPE_DATE) {
-            FormConstants.TYPE_DATE
-        } else if (type == FormConstants.TYPE_SUBMIT_BUTTON) {
-            FormConstants.TYPE_SUBMIT_BUTTON
         } else {
             FormConstants.TYPE_LIST
         }
