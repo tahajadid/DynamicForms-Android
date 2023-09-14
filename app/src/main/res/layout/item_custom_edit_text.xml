@@ -51,8 +51,6 @@
                 android:textColor="@color/color_red_dark"
                 android:textColorHint="@color/color_red_dark" />
 
-            <requestFocus />
-
         </com.google.android.material.textfield.TextInputLayout>
 
         <ImageView

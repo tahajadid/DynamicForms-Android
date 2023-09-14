@@ -12,8 +12,6 @@ object FormConstants {
 
     const val TYPE_CUSTOM_EDITTEXT = 2
     const val TYPE_SPINNER = 3
-    const val TYPE_DATE = 5
-    const val TYPE_SUBMIT_BUTTON = 10
     const val TYPE_LIST = 11
 
     const val EMPTY_STRING = ""
