@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity(), JsonToFormClickListener {
 
     var recyclerView: RecyclerView? = null
     var mAdapter: com.example.dynamicforms.formActivity.util.formAdapter.FormAdapter? = null
-    var jsonModelList: ArrayList<JSONModel> = ArrayList<JSONModel>()
+    var jsonModelList: ArrayList<JSONModel> = ArrayList()
 
     private val DATA_JSON_PATH = "data.json"
 
