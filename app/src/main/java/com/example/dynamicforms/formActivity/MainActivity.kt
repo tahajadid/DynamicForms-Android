@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity(), JsonToFormClickListener {
 
     var recyclerView: RecyclerView? = null
     var mAdapter: com.example.dynamicforms.formActivity.util.formAdapter.FormAdapter? = null
-    var jsonModelList: ArrayList<JSONModel> = ArrayList<JSONModel>()
+    var jsonModelList: ArrayList<JSONModel> = ArrayList()
 
     private val DATA_JSON_PATH = "data.json"
 
@@ -46,8 +46,7 @@ class MainActivity : AppCompatActivity(), JsonToFormClickListener {
      */
     private fun fetchData() {
         val json: String = com.example.dynamicforms.formActivity.util.CommonUtils.loadJSONFromAsset(applicationContext, DATA_JSON_PATH).toString()
-        var jsonModelList1: ArrayList<JSONModel>
-        jsonModelList1 = Gson().fromJson(json, object : TypeToken<List<JSONModel?>?>() {}.type)
+        var jsonModelList1: ArrayList<JSONModel> = Gson().fromJson(json, object : TypeToken<List<JSONModel?>?>() {}.type)
         jsonModelList.addAll(jsonModelList1)
         mAdapter!!.notifyDataSetChanged()
     }
