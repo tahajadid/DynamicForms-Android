@@ -57,9 +57,7 @@ class MainActivity : AppCompatActivity(), JsonToFormClickListener {
     private fun initRecyclerView() {
         mAdapter = com.example.dynamicforms.formActivity.util.formAdapter.FormAdapter(
             jsonModelList,
-            this,
-            this,
-        )
+            this)
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(applicationContext)
         recyclerView!!.layoutManager = layoutManager
         recyclerView!!.itemAnimator = DefaultItemAnimator()
