@@ -57,15 +57,12 @@ class MainActivity : AppCompatActivity(), JsonToFormClickListener {
     private fun initRecyclerView() {
         mAdapter = com.example.dynamicforms.formActivity.util.formAdapter.FormAdapter(
             jsonModelList,
-            this)
+            this,
+        )
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(applicationContext)
         recyclerView!!.layoutManager = layoutManager
         recyclerView!!.itemAnimator = DefaultItemAnimator()
         recyclerView!!.adapter = mAdapter
-    }
-
-    override fun onAddAgainButtonClick() {
-        Toast.makeText(this, "Add again button click", Toast.LENGTH_SHORT).show()
     }
 
     override fun onSubmitButtonClick() {
