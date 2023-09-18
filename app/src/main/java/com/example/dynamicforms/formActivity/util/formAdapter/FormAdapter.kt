@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dynamicforms.R
 import com.example.dynamicforms.formActivity.FormConstants
-import com.example.dynamicforms.formActivity.util.interfaces.JsonToFormClickListener
 import com.example.dynamicforms.formActivity.util.models.JSONModel
 import com.example.dynamicforms.formActivity.util.sigleton.DataValueHashMap
 import com.example.dynamicforms.formActivity.util.viewholder.* // ktlint-disable no-wildcard-imports
@@ -19,7 +18,6 @@ import com.example.dynamicforms.formActivity.util.viewholder.listHolder.ChoiceLi
 class FormAdapter(
     var jsonModelList: ArrayList<JSONModel>,
     var mContext: Context,
-    var jsonToFormClickListener: JsonToFormClickListener,
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onViewAttachedToWindow(holder: RecyclerView.ViewHolder) {
         holder.setIsRecyclable(false)
@@ -94,7 +92,4 @@ class FormAdapter(
         }
     }
 
-    companion object {
-        var keyValueHashMap = HashMap<String, String>()
-    }
 }
