@@ -2,6 +2,7 @@ package com.example.dynamicforms.formActivity
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -38,6 +39,13 @@ class MainActivity : AppCompatActivity(), JsonToFormClickListener {
         initRecyclerView()
         fetchData()
         activityInstance = this
+
+        val intent = getIntent()
+        val str = intent.getIntExtra("idMerchant",0)
+    }
+
+    override fun onResume() {
+        super.onResume()
     }
 
     /**
