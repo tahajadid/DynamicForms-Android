@@ -1,4 +1,4 @@
-package com.example.dynamicforms.formActivity.data
+package com.example.dynamicforms.billsActivity.data
 
 data class MerchantsHolder(
     var title: String? = null,

@@ -1,8 +1,4 @@
-package com.example.dynamicforms.formActivity.data // ktlint-disable filename
-
-data class responseServer(
-    var merchants: ArrayList<Merchants> = arrayListOf(),
-)
+package com.example.dynamicforms.billsActivity.data // ktlint-disable filename
 
 data class Merchants(
     var id: Int? = null,
