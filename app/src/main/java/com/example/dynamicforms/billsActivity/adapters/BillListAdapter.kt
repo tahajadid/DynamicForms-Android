@@ -3,6 +3,7 @@ package com.example.dynamicforms.billsActivity.adapters
 import android.content.Context
 import android.content.Intent
 import android.util.Base64
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -52,8 +53,8 @@ class BillListAdapter(
             billIcon.scaleType = ImageView.ScaleType.CENTER_INSIDE
 
             itemView.setOnClickListener {
-                val i = Intent(BillsActivity.activityInstance, MainActivity::class.java)
-                i.putExtra("ValueMercahnt", item.id)
+                val i = Intent(BillsActivity.activityInstance.applicationContext, MainActivity::class.java)
+                i.putExtra("idMerchant", item.id)
                 BillsActivity.activityInstance.startActivity(i)
             }
         }
