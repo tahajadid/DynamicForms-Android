@@ -31,7 +31,6 @@ class MainActivity : AppCompatActivity(), JsonToFormClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         // Init Library HashMap
         DataValueHashMap.init()
 
