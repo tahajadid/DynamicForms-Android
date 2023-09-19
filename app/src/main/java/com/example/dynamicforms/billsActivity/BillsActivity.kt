@@ -2,7 +2,6 @@ package com.example.dynamicforms.billsActivity // ktlint-disable package-name
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,7 +18,7 @@ class BillsActivity : AppCompatActivity() {
     var billSectionAdapter: BillSectionAdapter? = null
     var jsonModelList: ArrayList<Merchants> = ArrayList()
 
-    var finalList: ArrayList<MerchantsHolder> = ArrayList()
+    var merchantsHolderList: ArrayList<MerchantsHolder> = ArrayList()
 
     private val DATA_JSON_PATH = "custom_response.json"
 
@@ -36,44 +35,46 @@ class BillsActivity : AppCompatActivity() {
         fetchData()
         initRecyclerView()
 
-        val arrayList = arrayListOf("apple", "aanana", "cherry", "date", "grape", "apricot")
-
-        val groupedByFirstAlphabet = arrayList.groupBy { it.firstOrNull()?.toUpperCase() }
-
-        Log.d("ResultLog","Result groupedByFirstAlphabet : "+groupedByFirstAlphabet.toString())
-
         activityInstance = this
     }
 
+    // get data from json response
     private fun fetchData() {
         val json: String = com.example.dynamicforms.formActivity.util.CommonUtils.loadJSONFromAsset(applicationContext, DATA_JSON_PATH).toString()
         var jsonModelList1: ArrayList<Merchants> = Gson().fromJson(json, object : TypeToken<List<Merchants?>?>() {}.type)
         jsonModelList.addAll(jsonModelList1)
     }
 
+    /***
+     * function to init bills list
+     */
     private fun initRecyclerView() {
         sortList(jsonModelList)
         billSectionAdapter = BillSectionAdapter(
             this,
-            finalList,
+            merchantsHolderList,
         )
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(applicationContext)
         recyclerView!!.layoutManager = layoutManager
         recyclerView!!.itemAnimator = DefaultItemAnimator()
         recyclerView!!.adapter = billSectionAdapter
-        billSectionAdapter!!.notifyDataSetChanged()
     }
 
+    /***
+     * function to sort the existing list
+     */
     private fun sortList(jsonModelList: ArrayList<Merchants>) {
+        // group the list of merchants
         var newList = jsonModelList.groupBy {
             it.names?.fr?.firstOrNull()?.toUpperCase()
         }
 
+        // fill the list of billHolder
         newList.forEach {
-            finalList.add(MerchantsHolder(it.key.toString(), it.value as ArrayList<Merchants>))
+            merchantsHolderList.add(MerchantsHolder(it.key.toString(), it.value as ArrayList<Merchants>))
         }
 
-        Log.d("ResultLog","Result finalList : "+finalList.toString())
-
+        // sort it by the first letter
+        merchantsHolderList.sortBy { it.title }
     }
 }
