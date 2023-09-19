@@ -33,8 +33,6 @@ class BillSectionAdapter(
             listOfBills = itemView.findViewById(R.id.list_bills)
 
             leter.text = item.title
-            // Set the adapter for each operation
-            // check type operation and set the adapter
 
             billListAdapter = BillListAdapter(listOfBills.context, item.merchants)
             listOfBills.apply {
