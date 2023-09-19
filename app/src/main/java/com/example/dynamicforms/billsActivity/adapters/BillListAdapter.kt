@@ -1,6 +1,7 @@
-package com.example.dynamicforms.billsActivity
+package com.example.dynamicforms.billsActivity.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +11,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.dynamicforms.R
-import com.example.dynamicforms.formActivity.data.Merchants
+import com.example.dynamicforms.billsActivity.BillsActivity
+import com.example.dynamicforms.formActivity.MainActivity
+import com.example.dynamicforms.billsActivity.data.Merchants
+
 
 class BillListAdapter(
     val context: Context?,
@@ -39,7 +43,19 @@ class BillListAdapter(
                 ?.replace("data:image/jpeg;base64,", "") ?: ""
 
             val decodedBytes: ByteArray = Base64.decode(cleanImage, Base64.DEFAULT)
-            Glide.with(BillsActivity.activityInstance).load(decodedBytes).fitCenter().into(billIcon)
+            Glide
+                .with(BillsActivity.activityInstance)
+                .load(decodedBytes)
+                .optionalFitCenter()
+                .into(billIcon)
+
+            billIcon.scaleType = ImageView.ScaleType.CENTER_INSIDE
+
+            itemView.setOnClickListener {
+                val i = Intent(BillsActivity.activityInstance, MainActivity::class.java)
+                i.putExtra("ValueMercahnt", item.id)
+                BillsActivity.activityInstance.startActivity(i)
+            }
         }
     }
 

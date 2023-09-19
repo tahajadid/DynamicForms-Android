@@ -7,8 +7,9 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dynamicforms.R
-import com.example.dynamicforms.formActivity.data.Merchants
-import com.example.dynamicforms.formActivity.data.MerchantsHolder
+import com.example.dynamicforms.billsActivity.adapters.BillSectionAdapter
+import com.example.dynamicforms.billsActivity.data.Merchants
+import com.example.dynamicforms.billsActivity.data.MerchantsHolder
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 

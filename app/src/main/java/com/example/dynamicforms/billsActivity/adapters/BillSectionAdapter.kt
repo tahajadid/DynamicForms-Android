@@ -1,4 +1,4 @@
-package com.example.dynamicforms.billsActivity
+package com.example.dynamicforms.billsActivity.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dynamicforms.R
-import com.example.dynamicforms.formActivity.data.MerchantsHolder
+import com.example.dynamicforms.billsActivity.data.MerchantsHolder
 
 class BillSectionAdapter(
     val context: Context?,
