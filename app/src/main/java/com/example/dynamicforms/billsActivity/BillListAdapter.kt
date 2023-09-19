@@ -39,7 +39,13 @@ class BillListAdapter(
                 ?.replace("data:image/jpeg;base64,", "") ?: ""
 
             val decodedBytes: ByteArray = Base64.decode(cleanImage, Base64.DEFAULT)
-            Glide.with(BillsActivity.activityInstance).load(decodedBytes).fitCenter().into(billIcon)
+            Glide
+                .with(BillsActivity.activityInstance)
+                .load(decodedBytes)
+                .optionalFitCenter()
+                .into(billIcon)
+
+            billIcon.scaleType = ImageView.ScaleType.CENTER_INSIDE
         }
     }
 
