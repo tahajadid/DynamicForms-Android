@@ -10,6 +10,7 @@ import com.example.dynamicforms.R
 import com.example.dynamicforms.billsActivity.adapters.BillSectionAdapter
 import com.example.dynamicforms.billsActivity.data.Merchants
 import com.example.dynamicforms.billsActivity.data.MerchantsHolder
+import com.example.dynamicforms.merchantSessionList
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
@@ -51,6 +52,8 @@ class BillsActivity : AppCompatActivity() {
      */
     private fun initRecyclerView() {
         sortList(jsonModelList)
+        merchantSessionList = jsonModelList
+
         billSectionAdapter = BillSectionAdapter(
             this,
             merchantsHolderList,

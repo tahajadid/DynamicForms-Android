@@ -4,11 +4,11 @@ import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dynamicforms.R
+import com.example.dynamicforms.billsActivity.data.MerchantServiceFields
 import com.example.dynamicforms.formActivity.MainActivity
 import com.example.dynamicforms.formActivity.util.models.Choice
-import com.example.dynamicforms.formActivity.util.models.JSONModel
 
-class ChoiceListHolder(itemView: View, jsonModelList: List<JSONModel>) :
+class ChoiceListHolder(itemView: View, fieldList: ArrayList<MerchantServiceFields>) :
     RecyclerView.ViewHolder(itemView), ChoiceClickListener {
     var listOfChoice: RecyclerView
     var choiceItemAdapter: ChoiceItemAdapter
