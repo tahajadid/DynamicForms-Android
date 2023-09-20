@@ -2,6 +2,8 @@ package com.example.dynamicforms.formActivity.util
 
 import android.content.Context
 import android.util.Log
+import com.example.dynamicforms.billsActivity.data.Merchants
+import com.example.dynamicforms.merchantSessionList
 import java.io.IOException
 import java.nio.charset.Charset
 
@@ -21,5 +23,13 @@ object CommonUtils {
             return null
         }
         return json
+    }
+
+    fun getMerchantById(id: Int) : Merchants{
+        var tempMerchants = Merchants()
+        merchantSessionList.forEach {
+            if (it.id?.equals(id) == true) tempMerchants = it
+        }
+        return tempMerchants
     }
 }

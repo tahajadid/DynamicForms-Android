@@ -15,6 +15,7 @@ import com.example.dynamicforms.R
 import com.example.dynamicforms.billsActivity.BillsActivity
 import com.example.dynamicforms.formActivity.MainActivity
 import com.example.dynamicforms.billsActivity.data.Merchants
+import com.example.dynamicforms.merchantLogo
 
 
 class BillListAdapter(
@@ -53,6 +54,7 @@ class BillListAdapter(
             billIcon.scaleType = ImageView.ScaleType.CENTER_INSIDE
 
             itemView.setOnClickListener {
+                merchantLogo = item.logo.toString()
                 val i = Intent(BillsActivity.activityInstance.applicationContext, MainActivity::class.java)
                 i.putExtra("idMerchant", item.id)
                 BillsActivity.activityInstance.startActivity(i)

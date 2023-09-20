@@ -5,26 +5,26 @@ import android.text.InputType
 import android.util.Log
 import android.view.KeyEvent
 import android.view.inputmethod.EditorInfo
+import com.example.dynamicforms.billsActivity.data.MerchantServiceFields
 import com.example.dynamicforms.formActivity.FormConstants
-import com.example.dynamicforms.formActivity.util.models.JSONModel
 import com.example.dynamicforms.formActivity.util.sigleton.DataValueHashMap
 
 object BindCustomEditTextHolder {
 
-    fun bindCustomEditText(jsonModelList: ArrayList<JSONModel>, holder: CustomEditTextHolder, position: Int) {
-        val jsonModel = jsonModelList[position]
+    fun bindCustomEditText(fieldList: ArrayList<MerchantServiceFields>, holder: CustomEditTextHolder, position: Int) {
+        val jsonModel = fieldList[position]
         holder.layoutEdittext.editText!!.setOnEditorActionListener { v, actionId, event ->
             if (event != null && event.keyCode == KeyEvent.KEYCODE_ENTER || actionId == EditorInfo.IME_ACTION_NEXT) {
                 Log.i("KEYPADPressed", position.toString())
             }
             false
         }
-        holder.layoutEdittext.setHint(jsonModel.text)
+        holder.layoutEdittext.setHint(jsonModel.names!!.fr.toString())
         //
         if (jsonModel.maxLength != null) {
             holder.layoutEdittext.editText!!.filters = arrayOf<InputFilter>(
                 InputFilter.LengthFilter(
-                    jsonModel.maxLength,
+                    jsonModel.maxLength!!,
                 ),
             )
         } else {
@@ -35,19 +35,19 @@ object BindCustomEditTextHolder {
             )
         }
         //
-        if (jsonModel.inputType != null && jsonModel.inputType.equals(FormConstants.INPUT_TYPE_NUMBER)) {
+        if (jsonModel.dataType != null && jsonModel.dataType.equals(FormConstants.INPUT_TYPE_NUMBER)) {
             holder.layoutEdittext.editText!!.inputType = InputType.TYPE_CLASS_NUMBER
-        } else if (jsonModel.inputType != null && jsonModel.inputType.equals(FormConstants.INPUT_TYPE_NUMBER_DECIMAL)) {
+        } else if (jsonModel.dataType != null && jsonModel.dataType.equals(FormConstants.INPUT_TYPE_NUMBER_DECIMAL)) {
             holder.layoutEdittext.editText!!.inputType =
                 InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL
         } else {
             holder.layoutEdittext.editText!!.inputType = InputType.TYPE_CLASS_TEXT
         }
         //
-        holder.layoutEdittext.isEnabled = !(jsonModel.isEditable != null && !jsonModel.isEditable)
+        //holder.layoutEdittext.isEnabled = !(jsonModel.isEditable != null && !jsonModel.isEditable)
         //
-        if (!DataValueHashMap.getValue(jsonModel.id).isEmpty()) {
-            holder.layoutEdittext.editText!!.setText(DataValueHashMap.getValue(jsonModel.id))
+        if (!DataValueHashMap.getValue(jsonModel.code.toString()).isEmpty()) {
+            holder.layoutEdittext.editText!!.setText(DataValueHashMap.getValue(jsonModel.code.toString()))
         } else {
             holder.layoutEdittext.editText!!.setText(FormConstants.EMPTY_STRING)
         }

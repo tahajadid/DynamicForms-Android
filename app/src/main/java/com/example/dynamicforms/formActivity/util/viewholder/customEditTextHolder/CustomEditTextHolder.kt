@@ -7,11 +7,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dynamicforms.R
-import com.example.dynamicforms.formActivity.util.models.JSONModel
+import com.example.dynamicforms.billsActivity.data.MerchantServiceFields
 import com.example.dynamicforms.formActivity.util.sigleton.DataValueHashMap
 import com.google.android.material.textfield.TextInputLayout
 
-class CustomEditTextHolder(itemView: View, jsonModelList: List<JSONModel>) :
+class CustomEditTextHolder(itemView: View, fieldList: ArrayList<MerchantServiceFields>) :
     RecyclerView.ViewHolder(itemView) {
     var layoutEdittext: TextInputLayout
     var editTextIcon: ImageView
@@ -36,7 +36,7 @@ class CustomEditTextHolder(itemView: View, jsonModelList: List<JSONModel>) :
                     return
                 }
                 DataValueHashMap.put(
-                    jsonModelList[adapterPosition].id.toString(),
+                    fieldList[adapterPosition].code.toString(),
                     editable.toString(),
                 )
                 if (editable.length > 0 && layoutEdittext.isErrorEnabled) {

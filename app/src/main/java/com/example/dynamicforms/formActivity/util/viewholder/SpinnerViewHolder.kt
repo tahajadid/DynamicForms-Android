@@ -6,10 +6,11 @@ import android.widget.Spinner
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dynamicforms.R
+import com.example.dynamicforms.billsActivity.data.MerchantServiceFields
 import com.example.dynamicforms.formActivity.util.models.JSONModel
 import com.example.dynamicforms.formActivity.util.sigleton.DataValueHashMap
 
-class SpinnerViewHolder(itemView: View, jsonModelList: List<JSONModel>) :
+class SpinnerViewHolder(itemView: View, fieldList: ArrayList<MerchantServiceFields>) :
     RecyclerView.ViewHolder(itemView) {
     var txtSpinner: TextView
     var spinner: Spinner
@@ -23,7 +24,7 @@ class SpinnerViewHolder(itemView: View, jsonModelList: List<JSONModel>) :
                     return
                 }
                 DataValueHashMap.put(
-                    jsonModelList[adapterPosition].id.toString(),
+                    fieldList[adapterPosition].code.toString(),
                     spinner.selectedItem.toString(),
                 )
                 if (itemView.rootView.findFocus() != null) {
