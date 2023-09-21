@@ -25,7 +25,7 @@ object CommonUtils {
         return json
     }
 
-    fun getMerchantById(id: Int) : Merchants{
+    fun getMerchantById(id: Int): Merchants {
         var tempMerchants = Merchants()
         merchantSessionList.forEach {
             if (it.id?.equals(id) == true) tempMerchants = it

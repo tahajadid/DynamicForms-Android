@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity(), JsonToFormClickListener {
      */
     private fun initRecyclerView() {
         mAdapter = FormAdapter(
-            merchants.merchantServices[0].merchantServiceFields,
+            merchants.merchantServices[1].merchantServiceFields,
             this,
         )
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(applicationContext)

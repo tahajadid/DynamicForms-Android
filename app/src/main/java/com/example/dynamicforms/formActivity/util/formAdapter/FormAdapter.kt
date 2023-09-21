@@ -101,6 +101,8 @@ class FormAdapter(
             "A" -> return 2
             "S" -> return 3
             "N" -> return 2
+            "G" -> return 2
+            "M" -> return 2
             else -> return 11
         }
     }
