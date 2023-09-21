@@ -13,10 +13,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.dynamicforms.R
 import com.example.dynamicforms.billsActivity.BillsActivity
-import com.example.dynamicforms.formActivity.MainActivity
 import com.example.dynamicforms.billsActivity.data.Merchants
+import com.example.dynamicforms.formActivity.MainActivity
 import com.example.dynamicforms.merchantLogo
-
 
 class BillListAdapter(
     val context: Context?,

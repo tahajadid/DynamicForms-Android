@@ -19,7 +19,9 @@ object BindCustomEditTextHolder {
             }
             false
         }
-        holder.layoutEdittext.setHint(jsonModel.names!!.fr.toString())
+        if(jsonModel.names?.fr.isNullOrEmpty()) holder.layoutEdittext.setHint(jsonModel.names!!.dflt.toString())
+        else holder.layoutEdittext.setHint(jsonModel.names!!.fr.toString())
+
         //
         if (jsonModel.maxLength != null) {
             holder.layoutEdittext.editText!!.filters = arrayOf<InputFilter>(
@@ -34,6 +36,7 @@ object BindCustomEditTextHolder {
                 ),
             )
         }
+
         //
         if (jsonModel.dataType != null && jsonModel.dataType.equals(FormConstants.INPUT_TYPE_NUMBER)) {
             holder.layoutEdittext.editText!!.inputType = InputType.TYPE_CLASS_NUMBER
