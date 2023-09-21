@@ -1278,9 +1278,9 @@
                     {
                         "code":"ND",
                         "names":{
-                            "dflt":"Numéro de ligne",
+                            "dflt":"Numéro de ligne B2C",
                             "ar":"رقم الهاتف المحمول:",
-                            "fr":"Num. de ligne:",
+                            "fr":"Num. de ligne B2C:",
                             "en":null,
                             "lo":null,
                             "km":null
@@ -1355,7 +1355,7 @@
                     {
                         "code":"NDI",
                         "names":{
-                            "dflt":"Numéro de ligne",
+                            "dflt":"Numéro de ligne B2B",
                             "ar":null,
                             "fr":null,
                             "en":null,
