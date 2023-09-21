@@ -16,7 +16,7 @@ import com.example.dynamicforms.billsActivity.data.Merchants
 import com.example.dynamicforms.formActivity.util.CommonUtils
 import com.example.dynamicforms.formActivity.util.CommonUtils.getMerchantById
 import com.example.dynamicforms.formActivity.util.formAdapter.FormAdapter
-import com.example.dynamicforms.formActivity.util.interfaces.JsonToFormClickListener
+import com.example.dynamicforms.formActivity.util.interfaces.SubmitClickListener
 import com.example.dynamicforms.formActivity.util.models.JSONModel
 import com.example.dynamicforms.formActivity.util.sigleton.DataValueHashMap
 import com.example.dynamicforms.formActivity.util.validate.CheckFieldValidations
@@ -24,7 +24,7 @@ import com.example.dynamicforms.merchantLogo
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-class MainActivity : AppCompatActivity(), JsonToFormClickListener {
+class MainActivity : AppCompatActivity(), SubmitClickListener {
 
     lateinit var merchants: Merchants
     var recyclerView: RecyclerView? = null

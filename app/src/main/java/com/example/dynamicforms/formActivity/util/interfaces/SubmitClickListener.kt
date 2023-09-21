@@ -1,5 +1,5 @@
 package com.example.dynamicforms.formActivity.util.interfaces
 
-interface JsonToFormClickListener {
+interface SubmitClickListener {
     fun onSubmitButtonClick()
 }
