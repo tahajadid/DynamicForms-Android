@@ -19,9 +19,8 @@ class ChoiceListHolder(itemView: View, fieldList: ArrayList<MerchantServiceField
         Choice("2", "2", false),
         Choice("3", "3", false),
         Choice("4", "4", false),
-        Choice("5", "5", false),
-        Choice("6", "6", false),
     )
+
     init {
         listOfChoice = itemView.findViewById(R.id.list_of_choices)
 

@@ -27,7 +27,7 @@
             android:text="5555"
             android:textColor="@color/black"
             android:textDirection="ltr"
-            android:textSize="20dp"
+            android:textSize="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
