@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide
 import com.example.dynamicforms.R
 import com.example.dynamicforms.billsActivity.BillsActivity
 import com.example.dynamicforms.billsActivity.data.Merchants
+import com.example.dynamicforms.formActivity.util.CommonUtils
 import com.example.dynamicforms.formActivity.util.CommonUtils.getMerchantById
 import com.example.dynamicforms.formActivity.util.formAdapter.FormAdapter
 import com.example.dynamicforms.formActivity.util.interfaces.JsonToFormClickListener
@@ -65,7 +66,7 @@ class MainActivity : AppCompatActivity(), JsonToFormClickListener {
      * function to read data from json file
      */
     private fun fetchData() {
-        val json: String = com.example.dynamicforms.formActivity.util.CommonUtils.loadJSONFromAsset(applicationContext, DATA_JSON_PATH).toString()
+        val json: String = CommonUtils.loadJSONFromAsset(applicationContext, DATA_JSON_PATH).toString()
         var jsonModelList1: ArrayList<JSONModel> = Gson().fromJson(json, object : TypeToken<List<JSONModel?>?>() {}.type)
         jsonModelList.addAll(jsonModelList1)
         mAdapter!!.notifyDataSetChanged()
