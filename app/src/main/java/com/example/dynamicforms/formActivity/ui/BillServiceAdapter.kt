@@ -1,4 +1,4 @@
-package com.example.dynamicforms.formActivity
+package com.example.dynamicforms.formActivity.ui
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dynamicforms.R
 import com.example.dynamicforms.billsActivity.data.MerchantServicesSelection
+import com.example.dynamicforms.formActivity.MainActivity
 
 
 class BillServiceAdapter(
