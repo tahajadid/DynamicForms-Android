@@ -1,9 +1,10 @@
-package com.example.dynamicforms
+package com.example.dynamicforms.resultActivity
 
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.dynamicforms.R
 
 class ResultActivity : AppCompatActivity() {
     lateinit var results: TextView
