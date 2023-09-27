@@ -7,7 +7,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dynamicforms.R
 import com.example.dynamicforms.billsActivity.data.MerchantServiceFields
-import com.example.dynamicforms.formActivity.util.models.JSONModel
 import com.example.dynamicforms.formActivity.util.sigleton.DataValueHashMap
 
 class SpinnerViewHolder(itemView: View, fieldList: ArrayList<MerchantServiceFields>) :
