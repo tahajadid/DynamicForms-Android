@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dynamicforms.R
+import com.example.dynamicforms.resultList
 
 class ResultActivity : AppCompatActivity() {
     lateinit var results: TextView
@@ -23,5 +24,6 @@ class ResultActivity : AppCompatActivity() {
      * function to init the content view
      */
     private fun initComponents() {
+        results.text = resultList[0].content
     }
 }
