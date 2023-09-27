@@ -1,11 +1,13 @@
 package com.example.dynamicforms.formActivity
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Base64
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -25,6 +27,7 @@ import com.example.dynamicforms.formActivity.util.models.JSONModel
 import com.example.dynamicforms.formActivity.util.sigleton.DataValueHashMap
 import com.example.dynamicforms.formActivity.util.validate.CheckFieldValidations
 import com.example.dynamicforms.merchantLogo
+import com.example.dynamicforms.resultActivity.ResultActivity
 
 class MainActivity : AppCompatActivity(), SubmitClickListener, BillServiceClickListener {
 
@@ -33,6 +36,7 @@ class MainActivity : AppCompatActivity(), SubmitClickListener, BillServiceClickL
     var servicesList: RecyclerView? = null
 
     lateinit var imageView: ImageView
+    lateinit var nextButton: TextView
 
     var mAdapter: FormAdapter? = null
     var billServiceAdapter: BillServiceAdapter? = null
@@ -59,6 +63,12 @@ class MainActivity : AppCompatActivity(), SubmitClickListener, BillServiceClickL
         recyclerView = findViewById(R.id.recyclerview)
         servicesList = findViewById(R.id.serviceList)
         imageView = findViewById(R.id.imageView)
+        nextButton = findViewById(R.id.next_Btn)
+
+        nextButton.setOnClickListener {
+            val i = Intent(this, ResultActivity::class.java)
+            startActivity(i)
+        }
 
         initServicesList()
         initHeader()
