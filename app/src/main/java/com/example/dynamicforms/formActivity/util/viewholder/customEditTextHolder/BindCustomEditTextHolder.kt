@@ -19,8 +19,11 @@ object BindCustomEditTextHolder {
             }
             false
         }
-        if(jsonModel.names?.fr.isNullOrEmpty()) holder.layoutEdittext.setHint(jsonModel.names!!.dflt.toString())
-        else holder.layoutEdittext.setHint(jsonModel.names!!.fr.toString())
+        if (jsonModel.names?.fr.isNullOrEmpty()) {
+            holder.layoutEdittext.setHint(jsonModel.names!!.dflt.toString())
+        } else {
+            holder.layoutEdittext.setHint(jsonModel.names!!.fr.toString())
+        }
 
         //
         if (jsonModel.maxLength != null) {
@@ -47,7 +50,7 @@ object BindCustomEditTextHolder {
             holder.layoutEdittext.editText!!.inputType = InputType.TYPE_CLASS_TEXT
         }
         //
-        //holder.layoutEdittext.isEnabled = !(jsonModel.isEditable != null && !jsonModel.isEditable)
+        // holder.layoutEdittext.isEnabled = !(jsonModel.isEditable != null && !jsonModel.isEditable)
         //
         if (!DataValueHashMap.getValue(jsonModel.code.toString()).isEmpty()) {
             holder.layoutEdittext.editText!!.setText(DataValueHashMap.getValue(jsonModel.code.toString()))
