@@ -8,7 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dynamicforms.R
 import com.example.dynamicforms.billsActivity.data.MerchantServiceFields
-import com.example.dynamicforms.formActivity.util.sigleton.DataValueHashMap
+import com.example.dynamicforms.resultActivity.Results
+import com.example.dynamicforms.resultList
 import com.google.android.material.textfield.TextInputLayout
 
 class CustomEditTextHolder(itemView: View, fieldList: ArrayList<MerchantServiceFields>) :
@@ -35,10 +36,14 @@ class CustomEditTextHolder(itemView: View, fieldList: ArrayList<MerchantServiceF
                 if (adapterPosition == -1) {
                     return
                 }
+                /*
                 DataValueHashMap.put(
                     fieldList[adapterPosition].code.toString(),
                     editable.toString(),
                 )
+
+                 */
+                resultList.add(Results(fieldList[adapterPosition].code.toString(), editable.toString()))
                 if (editable.length > 0 && layoutEdittext.isErrorEnabled) {
                     layoutEdittext.isErrorEnabled = false
                 }
