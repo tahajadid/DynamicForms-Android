@@ -7,5 +7,5 @@ import com.example.dynamicforms.resultActivity.Results
 internal var merchantSessionList = mutableListOf<Merchants>()
 internal var merchantLogo = ""
 
-// results
+// results object
 internal var resultList = mutableListOf<Results>()
