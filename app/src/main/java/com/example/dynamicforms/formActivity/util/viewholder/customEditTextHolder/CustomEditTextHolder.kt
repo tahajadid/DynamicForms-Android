@@ -36,15 +36,10 @@ class CustomEditTextHolder(itemView: View, fieldList: ArrayList<MerchantServiceF
                 if (adapterPosition == -1) {
                     return
                 }
-                /*
-                DataValueHashMap.put(
-                    fieldList[adapterPosition].code.toString(),
-                    editable.toString(),
-                )
+                // add the value to result list
+                resultList.add(0, Results(fieldList[adapterPosition].code.toString(), editable.toString()))
 
-                 */
-                resultList.add(Results(fieldList[adapterPosition].code.toString(), editable.toString()))
-                if (editable.length > 0 && layoutEdittext.isErrorEnabled) {
+                if (editable.isNotEmpty() && layoutEdittext.isErrorEnabled) {
                     layoutEdittext.isErrorEnabled = false
                 }
             }
