@@ -20,6 +20,7 @@ class CustomEditTextHolder(itemView: View, fieldList: ArrayList<MerchantServiceF
     var errorIcon: ImageView
 
     init {
+        // init components
         layoutEdittext = itemView.findViewById(R.id.editText_layout)
         editTextIcon = itemView.findViewById(R.id.editText_icon)
         errorText = itemView.findViewById(R.id.error_text)
